@@ -1,4 +1,5 @@
 ﻿using System;
+using BloomFilter.Logic;
 
 namespace BloomFilter
 {
@@ -6,7 +7,14 @@ namespace BloomFilter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int capacity = 2000000;
+            var filter = new Filter<string>(capacity);
+            filter.Add("content");
+
+            Console.WriteLine(filter.Contains("content"));
+            Console.WriteLine(filter.Contains("content2"));
+
+            Console.ReadKey();
         }
     }
 }
